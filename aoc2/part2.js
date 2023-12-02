@@ -1,9 +1,6 @@
 const fs = require("fs");
-
 const input = fs.readFileSync("./input.txt", "utf-8");
-
 const lines = input.replaceAll(/Game .*:/g, "").split("\n");
-
 const getPower = (line) => {
   let redMin = 0;
   let greenMin = 0;
@@ -20,10 +17,7 @@ const getPower = (line) => {
       }
     });
   });
-  console.log(redMin, greenMin, blueMin);
   return redMin * greenMin * blueMin;
 };
-
 const result = lines.reduce((acc, curr) => getPower(curr) + acc, 0);
-
 console.log(result);
